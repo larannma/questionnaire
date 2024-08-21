@@ -15,6 +15,7 @@ interface QuizState {
   answers: { [key: number]: { selected: string[]; isCorrect: boolean } };
   loading: boolean;
   error: string | null;
+  correctAnswersCount: number; 
 }
 
 const initialState: QuizState = {
@@ -23,6 +24,7 @@ const initialState: QuizState = {
   answers: {},
   loading: false,
   error: null,
+  correctAnswersCount: 0,
 };
 
 
@@ -41,6 +43,9 @@ const quizSlice = createSlice({
     answerQuestion: (state, action) => {
       const { questionIndex, answer, isCorrect } = action.payload;
       state.answers[questionIndex] = { selected: answer, isCorrect };
+      if (isCorrect) {
+        state.correctAnswersCount += 1;
+      }
       state.currentQuestionIndex += 1;
     },
     resetQuiz: (state) => {
@@ -48,6 +53,7 @@ const quizSlice = createSlice({
       state.answers = {};
       state.questions = [];
       state.error = null;
+      state.correctAnswersCount = 0;
     },
   },
   extraReducers: (builder) => {
@@ -70,5 +76,6 @@ const quizSlice = createSlice({
 export const { answerQuestion, resetQuiz } = quizSlice.actions;
 
 export const selectQuizStatus = (state: { quiz: QuizState }) => state.quiz.loading;
+export const selectCorrectAnswersCount = (state: { quiz: QuizState }) => state.quiz.correctAnswersCount;
 
 export default quizSlice.reducer;

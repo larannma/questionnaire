@@ -27,15 +27,6 @@ const Label = styled.label`
   font-size: 1.5em;
 `;
 
-// const Input = styled.input`
-//   width: 50px;
-//   padding: 5px;
-//   font-size: 1em;
-//   text-align: center;
-//   border: 2px solid black;
-//   border-radius: 10px;
-// `;
-
 interface BeginProps {
   onStart: () => void;
 }

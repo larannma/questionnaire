@@ -13,7 +13,7 @@ const Card = styled.div`
   flex-direction: column;
   height: 100%;
   width: 100%;
-  justify-content: space-around;
+  justify-content: flex-start;
   gap: 2.5rem;
 `;
 
@@ -39,7 +39,7 @@ const QuestionCard: React.FC = () => {
   }, [currentQuestionIndex]);
 
   if (!question) {
-    return <p>Loading question...</p>;
+    return <p className='text-xl font-semibold'>Loading question...</p>;
   }
 
   const handleSelect = (option: string) => {

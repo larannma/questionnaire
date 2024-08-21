@@ -46,7 +46,7 @@ const QuizManager: React.FC = () => {
   return (
     <Wrapper>
       {!quizStarted && !showResults && <Begin onStart={handleStartQuiz} />}
-      {loading && <p>loading ...</p>}
+      {loading && <p className='text-xl font-semibold'>loading ...</p>}
       {quizStarted && !loading && !showResults && <Quiz onComplete={handleQuizComplete} />}
       {showResults && <Dashboard onRestart={handleRestartQuiz} />}
     </Wrapper>
