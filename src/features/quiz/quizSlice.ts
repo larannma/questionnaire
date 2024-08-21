@@ -79,3 +79,5 @@ export const selectQuizStatus = (state: { quiz: QuizState }) => state.quiz.loadi
 export const selectCorrectAnswersCount = (state: { quiz: QuizState }) => state.quiz.correctAnswersCount;
 
 export default quizSlice.reducer;
+
+export type { QuizState };

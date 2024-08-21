@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
-import { useAppDispatch } from '@/hooks/useAppDispatch';
-import { useAppSelector } from '@/hooks/useAppSelector';
+import { useAppDispatch } from '../../../hooks/useAppDispatch';
+import { useAppSelector } from '../../../hooks/useAppSelector';
 import Begin from './Begin';
 import Quiz from './Quiz';
 import Dashboard from './Dashboard';
