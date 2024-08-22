@@ -18,6 +18,10 @@ const Wrapper = styled.div`
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   padding: 2rem;
+
+  @media (max-width: 768px) {
+    width: 90%;
+  }
 `;
 
 const QuizManager: React.FC = () => {

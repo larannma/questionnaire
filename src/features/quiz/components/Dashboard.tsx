@@ -12,6 +12,10 @@ const DifficultyText = styled.h3<{ difficulty: 'easy' | 'medium' | 'hard' }>`
     'black'};
   font-weight: bold;
   font-size: 1.5rem;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 `;
 
 

@@ -4,7 +4,7 @@ import { fetchQuestions } from '../quizSlice';
 import styled from 'styled-components';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-// import img from '@/img/reading-book.png'
+import img from '@/img/reading-book.png'
 
 const Container = styled.div`
   display: flex;
@@ -25,6 +25,11 @@ const InputContainer = styled.div`
 
 const Label = styled.label`
   font-size: 1.5em;
+
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
 `;
 
 interface BeginProps {
@@ -71,7 +76,7 @@ const Begin: React.FC<BeginProps> = ({ onStart }) => {
       <Button size={'lg'} onClick={handleStartQuiz} disabled={isButtonDisabled}>
         Begin Quiz
       </Button>
-      {/* <img width={'250px'} src={img} alt='reading a book'></img> */}
+      <img width={'250px'} src={img} alt='reading a book'></img>
     </Container>
   );
 };

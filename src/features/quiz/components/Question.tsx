@@ -19,6 +19,10 @@ const Card = styled.div`
 
 const QuestionText = styled.h2`
   font-size: 1.5em;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 `;
 
 const Options = styled.div`
