@@ -13,5 +13,5 @@
     },
 
   },
-  "include": ["src/**/*", "src/types/**/*"],
+  "include": ["src/**/*", "src/types/**/*", "__mocks__"],
 }

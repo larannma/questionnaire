@@ -26,5 +26,5 @@
       "@/*": ["*"]
     }
   },
-  "include": ["src/**/*", "src/types/**/*"],
+  "include": ["src/**/*", "src/types/**/*", "src/__mocks__"],
 }
