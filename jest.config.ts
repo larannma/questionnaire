@@ -10,7 +10,7 @@ const config: Config = {
   testEnvironment: 'jest-environment-jsdom',
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
-    '\\.(png)$': '<rootDir>/__mocks__/fileMock.ts', 
+    '\\.(jpg|jpeg|png|gif|svg)$': '<rootDir>/src/__mocks__/fileMock.ts',
   },
   globals: {
     'ts-jest': {

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useAppSelector } from '@/hooks/useAppSelector';
-import Question from './Question';
+import Question from './QuestionCard';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -31,7 +31,7 @@ const Quiz: React.FC<QuizProps> = ({ onComplete }) => {
 
   return (
     <Wrapper>
-      <h2 className='text-xl font-semibold'>{`${currentQuestionIndex + 1}/${questions.length}`}</h2>
+      <h2 className='text-xl font-semibold'>{`Your result is ${currentQuestionIndex + 1}/${questions.length}`}</h2>
       <Question />
     </Wrapper>
   );

@@ -4,7 +4,7 @@ import { fetchQuestions } from '../quizSlice';
 import styled from 'styled-components';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import img from '@/img/reading-book.png'
+import img from '../../../img/reading-book.png'
 
 const Container = styled.div`
   display: flex;
