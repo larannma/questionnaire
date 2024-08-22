@@ -66,6 +66,11 @@ Error generating stack: `+i.message+`
   margin-bottom: 20px;
 `,Ux=Je.label`
   font-size: 1.5em;
+
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
 `,Bx=({onStart:e})=>{const t=Wa(),[n,r]=R.useState(2),o=l=>{const u=l.target.value,a=parseInt(u,10);u===""||isNaN(a)?r(""):r(a)},i=typeof n!="number"||n<2||n>10,s=()=>{i||(t(ki({amount:n})),e())};return N.jsxs(Fx,{children:[N.jsxs($x,{children:[N.jsx(Ux,{htmlFor:"questionCount",children:"Choose number of questions (from 2 to 10)"}),N.jsx(Um,{id:"questionCount",type:"number",min:"2",max:"10",value:n,onChange:o})]}),N.jsx(Ms,{size:"lg",onClick:s,disabled:i,children:"Begin Quiz"}),N.jsx("img",{width:"250px",src:Dx,alt:"reading a book"})]})};function jo(e,t=[]){let n=[];function r(i,s){const l=R.createContext(s),u=n.length;n=[...n,s];function a(f){const{scope:m,children:g,...y}=f,v=(m==null?void 0:m[e][u])||l,S=R.useMemo(()=>y,Object.values(y));return N.jsx(v.Provider,{value:S,children:g})}function c(f,m){const g=(m==null?void 0:m[e][u])||l,y=R.useContext(g);if(y)return y;if(s!==void 0)return s;throw new Error(`\`${f}\` must be used within \`${i}\``)}return a.displayName=i+"Provider",[a,c]}const o=()=>{const i=n.map(s=>R.createContext(s));return function(l){const u=(l==null?void 0:l[e])||i;return R.useMemo(()=>({[`__scope${e}`]:{...l,[e]:u}}),[l,u])}};return o.scopeName=e,[r,Wx(o,...t)]}function Wx(...e){const t=e[0];if(e.length===1)return t;const n=()=>{const r=e.map(o=>({useScope:o(),scopeName:o.scopeName}));return function(i){const s=r.reduce((l,{useScope:u,scopeName:a})=>{const f=u(i)[`__scope${a}`];return{...l,...f}},{});return R.useMemo(()=>({[`__scope${t.scopeName}`]:s}),[s])}};return n.scopeName=t.scopeName,n}function ct(e,t,{checkForDefaultPrevented:n=!0}={}){return function(o){if(e==null||e(o),n===!1||!o.defaultPrevented)return t==null?void 0:t(o)}}function Za(e){const t=R.useRef(e);return R.useEffect(()=>{t.current=e}),R.useMemo(()=>(...n)=>{var r;return(r=t.current)==null?void 0:r.call(t,...n)},[])}function ec({prop:e,defaultProp:t,onChange:n=()=>{}}){const[r,o]=Vx({defaultProp:t,onChange:n}),i=e!==void 0,s=i?e:r,l=Za(n),u=R.useCallback(a=>{if(i){const f=typeof a=="function"?a(e):a;f!==e&&l(f)}else o(a)},[i,e,o,l]);return[s,u]}function Vx({defaultProp:e,onChange:t}){const n=R.useState(e),[r]=n,o=R.useRef(r),i=Za(t);return R.useEffect(()=>{o.current!==r&&(i(r),o.current=r)},[r,o,i]),n}function Bm(e){const t=R.useRef({value:e,previous:e});return R.useMemo(()=>(t.current.value!==e&&(t.current.previous=t.current.value,t.current.value=e),t.current.previous),[e])}var is=globalThis!=null&&globalThis.document?R.useLayoutEffect:()=>{};function Wm(e){const[t,n]=R.useState(void 0);return is(()=>{if(e){n({width:e.offsetWidth,height:e.offsetHeight});const r=new ResizeObserver(o=>{if(!Array.isArray(o)||!o.length)return;const i=o[0];let s,l;if("borderBoxSize"in i){const u=i.borderBoxSize,a=Array.isArray(u)?u[0]:u;s=a.inlineSize,l=a.blockSize}else s=e.offsetWidth,l=e.offsetHeight;n({width:s,height:l})});return r.observe(e,{box:"border-box"}),()=>r.unobserve(e)}else n(void 0)},[e]),t}function Hx(e,t){return R.useReducer((n,r)=>t[n][r]??n,e)}var tc=e=>{const{present:t,children:n}=e,r=Gx(t),o=typeof n=="function"?n({present:r.isPresent}):R.Children.only(n),i=jn(r.ref,Qx(o));return typeof n=="function"||r.isPresent?R.cloneElement(o,{ref:i}):null};tc.displayName="Presence";function Gx(e){const[t,n]=R.useState(),r=R.useRef({}),o=R.useRef(e),i=R.useRef("none"),s=e?"mounted":"unmounted",[l,u]=Hx(s,{mounted:{UNMOUNT:"unmounted",ANIMATION_OUT:"unmountSuspended"},unmountSuspended:{MOUNT:"mounted",ANIMATION_END:"unmounted"},unmounted:{MOUNT:"mounted"}});return R.useEffect(()=>{const a=ri(r.current);i.current=l==="mounted"?a:"none"},[l]),is(()=>{const a=r.current,c=o.current;if(c!==e){const m=i.current,g=ri(a);e?u("MOUNT"):g==="none"||(a==null?void 0:a.display)==="none"?u("UNMOUNT"):u(c&&m!==g?"ANIMATION_OUT":"UNMOUNT"),o.current=e}},[e,u]),is(()=>{if(t){const a=f=>{const g=ri(r.current).includes(f.animationName);f.target===t&&g&&vh.flushSync(()=>u("ANIMATION_END"))},c=f=>{f.target===t&&(i.current=ri(r.current))};return t.addEventListener("animationstart",c),t.addEventListener("animationcancel",a),t.addEventListener("animationend",a),()=>{t.removeEventListener("animationstart",c),t.removeEventListener("animationcancel",a),t.removeEventListener("animationend",a)}}else u("ANIMATION_END")},[t,u]),{isPresent:["mounted","unmountSuspended"].includes(l),ref:R.useCallback(a=>{a&&(r.current=getComputedStyle(a)),n(a)},[])}}function ri(e){return(e==null?void 0:e.animationName)||"none"}function Qx(e){var r,o;let t=(r=Object.getOwnPropertyDescriptor(e.props,"ref"))==null?void 0:r.get,n=t&&"isReactWarning"in t&&t.isReactWarning;return n?e.ref:(t=(o=Object.getOwnPropertyDescriptor(e,"ref"))==null?void 0:o.get,n=t&&"isReactWarning"in t&&t.isReactWarning,n?e.props.ref:e.props.ref||e.ref)}var Kx=["a","button","div","form","h2","h3","img","input","label","li","nav","ol","p","span","svg","ul"],cn=Kx.reduce((e,t)=>{const n=R.forwardRef((r,o)=>{const{asChild:i,...s}=r,l=i?_o:t;return typeof window<"u"&&(window[Symbol.for("radix-ui")]=!0),N.jsx(l,{...s,ref:o})});return n.displayName=`Primitive.${t}`,{...e,[t]:n}},{}),nc="Checkbox",[qx,qE]=jo(nc),[Yx,Xx]=qx(nc),Vm=R.forwardRef((e,t)=>{const{__scopeCheckbox:n,name:r,checked:o,defaultChecked:i,required:s,disabled:l,value:u="on",onCheckedChange:a,...c}=e,[f,m]=R.useState(null),g=jn(t,p=>m(p)),y=R.useRef(!1),v=f?!!f.closest("form"):!0,[S=!1,h]=ec({prop:o,defaultProp:i,onChange:a}),d=R.useRef(S);return R.useEffect(()=>{const p=f==null?void 0:f.form;if(p){const w=()=>h(d.current);return p.addEventListener("reset",w),()=>p.removeEventListener("reset",w)}},[f,h]),N.jsxs(Yx,{scope:n,state:S,disabled:l,children:[N.jsx(cn.button,{type:"button",role:"checkbox","aria-checked":Rn(S)?"mixed":S,"aria-required":s,"data-state":Qm(S),"data-disabled":l?"":void 0,disabled:l,value:u,...c,ref:g,onKeyDown:ct(e.onKeyDown,p=>{p.key==="Enter"&&p.preventDefault()}),onClick:ct(e.onClick,p=>{h(w=>Rn(w)?!0:!w),v&&(y.current=p.isPropagationStopped(),y.current||p.stopPropagation())})}),v&&N.jsx(Jx,{control:f,bubbles:!y.current,name:r,value:u,checked:S,required:s,disabled:l,style:{transform:"translateX(-100%)"}})]})});Vm.displayName=nc;var Hm="CheckboxIndicator",Gm=R.forwardRef((e,t)=>{const{__scopeCheckbox:n,forceMount:r,...o}=e,i=Xx(Hm,n);return N.jsx(tc,{present:r||Rn(i.state)||i.state===!0,children:N.jsx(cn.span,{"data-state":Qm(i.state),"data-disabled":i.disabled?"":void 0,...o,ref:t,style:{pointerEvents:"none",...e.style}})})});Gm.displayName=Hm;var Jx=e=>{const{control:t,checked:n,bubbles:r=!0,...o}=e,i=R.useRef(null),s=Bm(n),l=Wm(t);return R.useEffect(()=>{const u=i.current,a=window.HTMLInputElement.prototype,f=Object.getOwnPropertyDescriptor(a,"checked").set;if(s!==n&&f){const m=new Event("click",{bubbles:r});u.indeterminate=Rn(n),f.call(u,Rn(n)?!1:n),u.dispatchEvent(m)}},[s,n,r]),N.jsx("input",{type:"checkbox","aria-hidden":!0,defaultChecked:Rn(n)?!1:n,...o,tabIndex:-1,ref:i,style:{...e.style,...l,position:"absolute",pointerEvents:"none",opacity:0,margin:0}})};function Rn(e){return e==="indeterminate"}function Qm(e){return Rn(e)?"indeterminate":e?"checked":"unchecked"}var Km=Vm,Zx=Gm;/**
  * @license lucide-react v0.428.0 - ISC
  *
@@ -105,6 +110,10 @@ Error generating stack: `+i.message+`
   gap: 2.5rem;
 `,jE=Je.h2`
   font-size: 1.5em;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 `,LE=Je.div`
   display: flex;
   flex-direction: column;
@@ -120,6 +129,10 @@ Error generating stack: `+i.message+`
   color: ${({difficulty:e})=>e==="easy"?"green":e==="medium"?"orange":e==="hard"?"coral":"black"};
   font-weight: bold;
   font-size: 1.5rem;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 `,UE=Je.div`
   display: flex;
   flex-direction: column;
@@ -137,6 +150,10 @@ Error generating stack: `+i.message+`
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   padding: 2rem;
+
+  @media (max-width: 768px) {
+    width: 90%;
+  }
 `,VE=()=>{const e=Wa(),t=xo(qS),[n,r]=R.useState(!1),[o,i]=R.useState(!1),s=R.useCallback(()=>{r(!0),i(!1)},[]),l=R.useCallback(()=>{r(!1),i(!0)},[]),u=R.useCallback(()=>{e(KS()),r(!1),i(!1)},[e]);return N.jsxs(WE,{children:[!n&&!o&&N.jsx(Bx,{onStart:s}),t&&N.jsx("p",{className:"text-xl font-semibold",children:"loading ..."}),n&&!t&&!o&&N.jsx(FE,{onComplete:l}),o&&N.jsx(BE,{onRestart:u})]})},HE=Je.div`
   display: flex;
   align-items: center;
