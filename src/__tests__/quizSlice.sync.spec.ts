@@ -1,5 +1,5 @@
 import { expect, test, describe } from '@jest/globals';
-import quizReducer, { answerQuestion, resetQuiz } from './quizSlice';
+import quizReducer, { answerQuestion, resetQuiz } from '@/features/quiz/quizSlice';
 
 describe('тесты синхронных экшенов', () => {
   const initialState = {

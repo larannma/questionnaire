@@ -1,7 +1,7 @@
 import { expect, test, describe, jest } from '@jest/globals';
 import { configureStore } from '@reduxjs/toolkit';
 import axios from 'axios';
-import quizReducer, { fetchQuestions } from './quizSlice';
+import quizReducer, { fetchQuestions } from '@/features/quiz/quizSlice';
 
 jest.mock('axios');
 

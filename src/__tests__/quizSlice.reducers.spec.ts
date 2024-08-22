@@ -1,6 +1,6 @@
 import { expect, test, describe } from '@jest/globals';
 import { configureStore } from '@reduxjs/toolkit';
-import quizReducer, { selectCorrectAnswersCount, QuizState } from './quizSlice';
+import quizReducer, { selectCorrectAnswersCount, QuizState } from '@/features/quiz/quizSlice';
 
 describe('тесты селекторов', () => {
   test('селектор получения правильных ответов', () => {
