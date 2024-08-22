@@ -33,26 +33,39 @@ interface BeginProps {
 
 const Begin: React.FC<BeginProps> = ({ onStart }) => {
   const dispatch = useAppDispatch();
-  const [questionCount, setQuestionCount] = useState(2);
+  const [questionCount, setQuestionCount] = useState<number | ''>(2);
 
-  const isButtonDisabled = questionCount < 2 || questionCount > 10;
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    const parsedValue = parseInt(value, 10);
+    
+    if (value === '' || isNaN(parsedValue)) {
+      setQuestionCount('');
+    } else {
+      setQuestionCount(parsedValue);
+    }
+  };
 
+  const isButtonDisabled = typeof questionCount !== 'number' || questionCount < 2 || questionCount > 10;
+  
   const handleStartQuiz = () => {
-    dispatch(fetchQuestions({ amount: questionCount }));
-    onStart();
+    if (!isButtonDisabled) {
+      dispatch(fetchQuestions({ amount: questionCount as number }));
+      onStart();
+    }
   };
 
   return (
     <Container>
       <InputContainer>
-        <Label htmlFor="questionCount">Choose number if questions (from 2 to 10)</Label>
+        <Label htmlFor="questionCount">Choose number of questions (from 2 to 10)</Label>
         <Input
           id="questionCount"
           type="number"
-          min="1"
-          max="50"
+          min="2"
+          max="10"
           value={questionCount}
-          onChange={(e) => setQuestionCount(parseInt(e.target.value))}
+          onChange={handleChange}
         />
       </InputContainer>
       <Button size={'lg'} onClick={handleStartQuiz} disabled={isButtonDisabled}>
