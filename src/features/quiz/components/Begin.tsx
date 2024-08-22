@@ -65,6 +65,7 @@ const Begin: React.FC<BeginProps> = ({ onStart }) => {
       <InputContainer>
         <Label htmlFor="questionCount">Choose number of questions (from 2 to 10)</Label>
         <Input
+          name="questionCount"
           id="questionCount"
           type="number"
           min="2"
@@ -73,7 +74,7 @@ const Begin: React.FC<BeginProps> = ({ onStart }) => {
           onChange={handleChange}
         />
       </InputContainer>
-      <Button size={'lg'} onClick={handleStartQuiz} disabled={isButtonDisabled}>
+      <Button type="submit" size={'lg'} onClick={handleStartQuiz} disabled={isButtonDisabled}>
         Begin Quiz
       </Button>
       <img width={'250px'} src={img} alt='reading a book'></img>

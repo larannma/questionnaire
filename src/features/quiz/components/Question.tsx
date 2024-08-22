@@ -73,12 +73,11 @@ const QuestionCard: React.FC = () => {
           question.incorrect_answers.concat(question.correct_answer).sort().map((option, index) => (
             <div key={index} className="flex items-center space-x-2">
               <Checkbox
-                id={`checkbox-${index}`}
+                className="question-option"
                 checked={selectedOptions.includes(option)}
                 onCheckedChange={() => handleSelect(option)}
               />
               <label
-                htmlFor={`checkbox-${index}`}
                 className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
               >
                 {option}
@@ -92,14 +91,14 @@ const QuestionCard: React.FC = () => {
           >
             {question.incorrect_answers.concat(question.correct_answer).sort().map((option, index) => (
               <div key={index} className="flex items-center space-x-2">
-                <RadioGroupItem value={option} id={`radio-${index}`} />
-                <Label htmlFor={`radio-${index}`}>{option}</Label>
+                <RadioGroupItem value={option} className="question-option" />
+                <Label>{option}</Label>
               </div>
             ))}
           </RadioGroup>
         )}
       </Options>
-      <Button onClick={handleSubmit} disabled={selectedOptions.length === 0}>
+      <Button type="submit" onClick={handleSubmit} disabled={selectedOptions.length === 0}>
         Next
       </Button>
     </Card>
@@ -107,3 +106,4 @@ const QuestionCard: React.FC = () => {
 };
 
 export default QuestionCard;
+

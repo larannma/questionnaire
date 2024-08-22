@@ -66,7 +66,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onRestart }) => {
               </p>
             ))
           ) : (
-            <p className='text-md font-semibold'>No {difficulty} level questions.</p>
+            <p className='text-md font-semibold'>👀</p>
           )}
         </div>
       ))}

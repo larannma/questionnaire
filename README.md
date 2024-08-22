@@ -4,6 +4,5 @@
 🤓
 
 ![Begin](public/Begin.png)
-![Quiz](public/Quiz.png)
-![Dashboard](public/Dashboard.png)
+![e2e](public/e2e.gif)
 ![Shema](public/shema.jpeg)
