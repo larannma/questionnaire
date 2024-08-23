@@ -1,6 +1,6 @@
 # QUESTIONNARIE
 
-[QUESTIONNARIE SITE](larannma.github.io/questionnaire/) 
+QUESTIONNARIE SITE - https://larannma.github.io/questionnaire/
 🤓
 
 ![Begin](public/Begin.png)
